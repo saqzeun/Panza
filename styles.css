@@ -1,6 +1,56 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.panel_header {
+  display: flex;
+  justify-content: space-between;
+  height: 15vh;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.logo_header {
+  margin-left: 4em;
+}
+
+.tools_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 2em;
+}
+
+.notification_header {
+  margin-right: 3em;
+}
+
+.page_navigation {
+  background-color: #964040;
+  width: 15%;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav_navigation {
+  margin-top: 2em;
+  text-decoration: none;
+}
+
+.nav_ul {
+  list-style: none;
+}
+
+.nav_active {
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .login_page {
@@ -8,6 +58,11 @@
   justify-content: center;
   flex-direction: column;
   display: flex;
+}
+
+.nav_active a {
+  text-decoration: none;
+  color: black;
 }
 
 .form_container {
