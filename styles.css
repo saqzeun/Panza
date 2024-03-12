@@ -46,11 +46,23 @@
 }
 
 .nav_active {
-  color: black;
   background-color: white;
   border-radius: 5px;
   display: flex;
-  justify-content: space-between;
+  padding: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.nav_active:hover {
+  background-color: #964040;
+}
+
+.nav_active a:hover {
+  color: white;
+}
+
+.logospace {
+  margin-right: 1em;
 }
 
 .login_page {
@@ -63,6 +75,20 @@
 .nav_active a {
   text-decoration: none;
   color: black;
+  display: flex;
+}
+
+.nav_noactive {
+  display: flex;
+  color: white;
+  margin-top: 2em;
+  padding-left: 10px;
+}
+
+.nav_noactive a {
+  text-decoration: none;
+  color: white;
+  display: flex;
 }
 
 .form_container {
