@@ -54,11 +54,7 @@
 }
 
 .nav_active:hover {
-  background-color: #964040;
-}
-
-.nav_active a:hover {
-  color: white;
+  background-color: #efefef;
 }
 
 .logospace {
@@ -215,4 +211,58 @@
   font-size: 0.75rem;
   color: #8b8e98;
   text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+thead,
+tfoot {
+  background-color: rgb(228 240 245);
+}
+
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+td:last-of-type {
+  text-align: center;
+}
+
+tbody > tr:nth-of-type(even) {
+  background-color: rgb(237 238 242);
+}
+
+tfoot th {
+  text-align: right;
+}
+
+tfoot td {
+  font-weight: bold;
+}
+
+.flex_table {
+  display: flex;
+}
+
+.tableau {
+  margin-top: 2em;
+  margin-left: 2em;
+  width: 80%;
+}
+
+.voir_button {
+  background-color: #964040;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  padding: 8px;
 }
