@@ -1,3 +1,6 @@
+<?php
+  require "db.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,8 +11,23 @@
 <body>
   <main>
     <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $db = new dbco("panza", "root", "root");
+        $sql = $db->prepare("SELECT * FROM users WHERE username=:username AND passwordd=:password");
+        $sql->bindParam(':name', $username);
+        $sql->bindParam(':value', sha1($password));
+        $result = $sql->execute();;
+        if ($result) {
+          echo "Connexion réussie !";
+        } else {
+          echo "Veuillez vérifier vos identifiants !";
+        }
+        $db->close();
+      }
     ?>
-    <form method="post">
+    <form method="POST">
       <input type="text" name="username" placeholder="Nom d'utilisateur">
       <input type="password" name="password" placeholder="Mot de passe">
       <button type="submit">Connexion</button>
