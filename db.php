@@ -1,21 +1,23 @@
 <?php
-  class dbco {
-    private $db;
-    public function __construct($dbname, $login, $password) {
-      try {
-        $this->db = new PDO("mysql:host=localhost;dbname=" . $dbname . ";charset=utf8", $login, $password);
-      } catch (Exception $e) {
-        die("Erreur : " . $e->getMessage());
-      }
-    }
-    public function SQLWithoutParam($sql) {
-      $response = $this->db->query($sql);
-      $data = $response->fetchAll();
-      $response->closeCursor();
-      return $data;
-    }
-    public function close() {
-      $this->db = null;
-    }
+class MySQL {
+  static private $oPDO = NULL;
+  static private $oInstance = NULL;
+  private function __construct() {
+    self::$oPDO = new PDO("mysql:host=localhost;dbname=panza;charset=utf8", "root", "root");
+    self::$oPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    self::$oPDO->query("SET NAMES 'utf8'");
   }
-?>
+  public function __call($method, $params)
+  {
+    if (self::$oPDO == NULL) {
+      self::__construct();
+    }
+    return call_user_func_array(array(self::$oPDO, $method), $params);
+  }
+  static public function getInstance() {
+    if (!(self::$oInstance instanceof self)) {
+      self::$oInstance = new self();
+    }
+    return self::$oInstance;
+  }
+}

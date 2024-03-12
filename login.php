@@ -14,17 +14,18 @@
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $db = new dbco("panza", "root", "root");
-        $sql = $db->prepare("SELECT * FROM users WHERE username=:username AND passwordd=:password");
-        $sql->bindParam(':name', $username);
-        $sql->bindParam(':value', sha1($password));
-        $result = $sql->execute();;
+        $sql = Mysql::getInstance()->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        $result = $sql->execute([$username, sha1($password)]);;
         if ($result) {
-          echo "Connexion réussie !";
+          $user = $sql->fetch(PDO::FETCH_ASSOC);
+          if ($user) {
+            echo "Connexion réussie !";
+          } else {
+            echo "Veuillez vérifier vos identifiants !";
+          }
         } else {
-          echo "Veuillez vérifier vos identifiants !";
+          echo "Erreur lors de l'exécution de la requête !";
         }
-        $db->close();
       }
     ?>
     <form method="POST">
