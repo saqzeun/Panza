@@ -55,6 +55,7 @@
   border-radius: 5px;
   display: flex;
   padding: 10px;
+  margin-top: 2em;
   transition: 0.2s ease-in-out;
 }
 
@@ -270,4 +271,38 @@ tfoot td {
   border-style: none;
   border-radius: 5px;
   padding: 8px;
+}
+
+.card_profil {
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 20px 20px 59px #939799, -20px -20px 59px #ffffff;
+  width: 50%;
+  margin: 2%;
+  margin-bottom: 15%;
+  margin-left: 15em;
+}
+
+.card_flex {
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_info {
+  width: 50%;
+  margin-left: 3em;
+}
+
+.card_info ul {
+  list-style: none;
+}
+
+.card_space {
+  margin-top: 2em;
+}
+
+.card_img {
+  margin-right: -3em;
+  width: 35%;
 }
