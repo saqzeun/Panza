@@ -19,7 +19,7 @@
         if ($result) {
           $user = $sql->fetch(PDO::FETCH_ASSOC);
           if ($user) {
-            echo "Connexion réussie !";
+            header("Location: dashboard.php");
           } else {
             echo "Veuillez vérifier vos identifiants !";
           }
